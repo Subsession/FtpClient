@@ -1,0 +1,21 @@
+{
+  "name": "comertis/ftp",
+  "description": "A OO php FTP wrapper library",
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cristian Moraru",
+      "email": "cristian@comertis.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Comertis\\Ftp\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0"
+  }
+}
