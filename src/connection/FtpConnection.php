@@ -2,7 +2,8 @@
 
 namespace Comertis\Ftp;
 
-use Comertis\Ftp\FtpConnectionType;
+use Comertis\Ftp\FtpConnectionMode;
+use Comertis\Ftp\FtpServerType;
 
 /**
  * Holds the FTP connection details, like the URL,
@@ -14,7 +15,7 @@ class FtpConnection
      * The FTP connection url
      *
      * @access private
-     * @var string
+     * @property string
      */
     private $_url;
 
@@ -22,24 +23,32 @@ class FtpConnection
      * The FTP connection port
      *
      * @access private
-     * @var int
+     * @property int
      */
     private $_port;
 
     /**
-     * The FTP connection type
+     * The FTP connection server type
      *
      * @access private
-     * @var string
+     * @property string
      */
-    private $_connectionType;
+    private $_serverType;
+
+    /**
+     * The FTP connection mode
+     *
+     * @access private
+     * @property string
+     */
+    private $_connectionMode;
 
     /**
      * Defualt port mappings for different
      * connection types
      *
      * @access private
-     * @var array
+     * @property array
      */
     private $_defaultPortMappings;
 
@@ -48,17 +57,18 @@ class FtpConnection
      *
      * @param string $url
      * @param int $port
-     * @param string $connectionType
+     * @param string $serverType
      */
-    public function __construct($url = null, $port = null, $connectionType = null)
+    public function __construct($url = null, $port = null, $serverType = null, $connectionMode = null)
     {
         $this->_url = $url;
         $this->_port = $port;
-        $this->_connectionType = $connectionType ?: FtpConnectionType::FTP;
+        $this->_serverType = $serverType ?: FtpServerType::FTP;
+        $this->_connectionMode = $connectionMode ?: FtpConnectionMode::ACTIVE;
 
         $this->_defaultPortMappings = [
-            FtpConnectionType::FTP => 21,
-            FtpConnectionType::SFTP => 22,
+            FtpServerType::FTP => 21,
+            FtpServerType::SFTP => 22,
         ];
     }
 
@@ -113,38 +123,64 @@ class FtpConnection
     }
 
     /**
-     * Get the FTP connection type
+     * Get the FTP connection server type
      *
      * @access public
      * @return string
      */
-    public function getConnectionType()
+    public function getServerType()
     {
-        return $this->_connectionType;
+        return $this->_serverType;
     }
 
     /**
-     * Set the FTP connection type
+     * Set the FTP connection server type
      *
-     * @param string $connectionType
+     * @param string $serverType
      * @return FtpConnection
      */
-    public function setConnectionType($connectionType)
+    public function setServerType($serverType)
     {
-        $this->_connectionType = $connectionType;
+        $this->_serverType = $serverType;
 
         return $this;
     }
 
     /**
-     * Get the default port based on a connection type
+     * Get the FTP connection mode
+     *
+     * @access public
+     * @return string
+     */
+    public function getConnectionMode()
+    {
+        return $this->_connectionMode;
+    }
+
+    /**
+     * Set the FTP connection mode
+     *
+     * @param string $connectionMode
+     * @access public
+     * @return FtpConnection
+     */
+    public function setConnectionMode($connectionMode)
+    {
+        $this->_connectionMode = $connectionMode;
+
+        return $this;
+    }
+
+    /**
+     * Get the default port based on a connection
+     * server type
      *
      * @param string $connectionType
      * @access private
      * @return int
      */
-    private function getDefaultPort($connectionType)
+    private function getDefaultPort($serverType)
     {
-        return $this->_defaultPortMappings[$connectionType];
+        return $this->_defaultPortMappings[$serverType];
     }
 }

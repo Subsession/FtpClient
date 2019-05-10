@@ -11,7 +11,7 @@ class FtpCredentials
      * The user to be used by the FTP connection
      *
      * @access private
-     * @var string
+     * @property string
      */
     private $_user;
 
@@ -19,7 +19,7 @@ class FtpCredentials
      * The password to be used by the FTP connection
      *
      * @access private
-     * @var string
+     * @property string
      */
     private $_password;
 

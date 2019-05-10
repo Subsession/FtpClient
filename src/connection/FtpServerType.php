@@ -2,7 +2,7 @@
 
 namespace Comertis\Ftp;
 
-class FtpConnectionType
+class FtpServerType
 {
     /**
      * File transfer protocol
