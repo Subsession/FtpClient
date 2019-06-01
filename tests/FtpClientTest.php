@@ -1,11 +1,14 @@
 <?php
 
-require_once "../vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use Comertis\Ftp\FtpClient;
 
 class FtpClientTest
 {
+    /**
+     * @var FtpClient
+     */
     private $_ftpClient;
 
     public function __construct()
@@ -15,9 +18,14 @@ class FtpClientTest
 
     public function init()
     {
+        echo "<p>connect -> " . $this->connect() . "</p>";
+    }
 
+    public function connect()
+    {
+        return true;
     }
 }
 
-$test = new FtpClientTest();
-$test->init();
+$ftpClientTest = new FtpClientTest();
+$ftpClientTest->init();

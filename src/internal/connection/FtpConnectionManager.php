@@ -32,18 +32,18 @@
  * @link     https://github.com/Comertis/FtpClient
  */
 
-namespace Comertis\Ftp;
+namespace Comertis\Ftp\Internal\Connection;
 
 use Comertis\Ftp\Internal\Connection\FtpConnection;
-use Comertis\Ftp\Internal\Connection\FtpConnectionManager;
-use Comertis\Ftp\Internal\Files\FtpFileManager;
+use Comertis\Ftp\Internal\Connection\FtpConnectionData;
+use Comertis\Ftp\Internal\Connection\FtpCredentials;
 
 /**
  * Undocumented class
  *
- * @uses Comertis\Ftp\Internal\Files\FtpFileManager
  * @uses Comertis\Ftp\Internal\Connection\FtpConnection
- * @uses Comertis\Ftp\Internal\Connection\FtpConnectionManager
+ * @uses Comertis\Ftp\Internal\Connection\FtpCredentials
+ * @uses Comertis\Ftp\Internal\Connection\FtpConnectionData
  *
  * @category Ftp
  * @package  Comertis\Ftp
@@ -52,42 +52,31 @@ use Comertis\Ftp\Internal\Files\FtpFileManager;
  * @version  Release: 1.0.0
  * @link     https://github.com/Comertis/FtpClient
  */
-class FtpClient
+class FtpConnectionManager
 {
     /**
-     * Responsible for handling the FTP connection
+     * Responsible for managing the FTP connection
      *
      * @access private
-     * @var    FtpConnectionManager
+     * @var    FtpConnectionData
      */
-    private $_connectionManager;
+    private $_connection;
 
     /**
-     * Responsible for managing file uploads and downloads
+     * Responsible for managing the FTP login credentials
      *
      * @access private
-     * @var    FtpFileManager
+     * @var    FtpCredentials
      */
-    private $_fileManager;
+    private $_credentials;
 
     /**
      * Constructor
-     *
-     * @param string  $url      FTP URL
-     * @param integer $port     FTP Port
      */
-    public function __construct($url = null, $port = null)
+    public function __construct()
     {
-        $this->_connectionManager = new FtpConnectionManager();
-        $this->_fileManager = new FtpFileManager();
-
-        if (!is_null($url)) {
-            $this->_connectionManager->setUrl($url);
-        }
-
-        if (!is_null($port)) {
-            $this->_connectionManager->setPort($port);
-        }
+        $this->_connection = new FtpConnectionData();
+        $this->_credentials = new FtpCredentials();
     }
 
     /**
@@ -98,7 +87,7 @@ class FtpClient
      */
     public function getConnection()
     {
-        return $this->_connectionManager->getConnection();
+        return $this->_connection;
     }
 
     /**
@@ -107,38 +96,12 @@ class FtpClient
      * @param FtpConnection $ftpConnection FtpConnection instance
      *
      * @access public
+     * @see    FtpConnection
      * @return FtpClient
      */
     public function setConnection(FtpConnection $ftpConnection)
     {
-        $this->_connectionManager->setConnection($ftpConnection);
-
-        return $this;
-    }
-
-    /**
-     * Get the configured FTP credentials
-     *
-     * @access public
-     * @return FtpCredentials
-     */
-    public function getCredentials()
-    {
-        return $this->_connectionManager->getCredentials();
-    }
-
-    /**
-     * Set the FTP credentials
-     *
-     * @param string $user     Username
-     * @param string $password Password
-     *
-     * @access public
-     * @return FtpClient
-     */
-    public function setCredentials($user, $password)
-    {
-        $this->_connectionManager->setCredentials($user, $password);
+        $this->_connection = $ftpConnection;
 
         return $this;
     }
@@ -151,7 +114,7 @@ class FtpClient
      */
     public function getConnectionMode()
     {
-        return $this->_connectionManager->getConnectionMode();
+        return $this->_connection->getConnectionMode();
     }
 
     /**
@@ -165,7 +128,7 @@ class FtpClient
      */
     public function setConnectionMode($connectionMode)
     {
-        $this->_connectionManager->setConnectionMode($connectionMode);
+        $this->_connection->setConnectionMode($connectionMode);
 
         return $this;
     }
@@ -178,7 +141,7 @@ class FtpClient
      */
     public function getUrl()
     {
-        return $this->_connectionManager->getUrl();
+        return $this->_connection->getUrl();
     }
 
     /**
@@ -191,7 +154,7 @@ class FtpClient
      */
     public function setUrl($url)
     {
-        $this->_connectionManager->setUrl($url);
+        $this->_connection->setUrl($url);
 
         return $this;
     }
@@ -204,7 +167,7 @@ class FtpClient
      */
     public function getPort()
     {
-        return $this->_connectionManager->getPort();
+        return $this->_connection->getPort();
     }
 
     /**
@@ -217,7 +180,34 @@ class FtpClient
      */
     public function setPort($port)
     {
-        $this->_connectionManager->setPort($port);
+        $this->_connection->setPort($port);
+
+        return $this;
+    }
+
+    /**
+     * Get the configured FTP credentials
+     *
+     * @access public
+     * @return FtpCredentials
+     */
+    public function getCredentials()
+    {
+        return $this->_credentials;
+    }
+
+    /**
+     * Set the FTP credentials
+     *
+     * @param string $user     Username
+     * @param string $password Password
+     *
+     * @access public
+     * @return FtpClient
+     */
+    public function setCredentials($user, $password)
+    {
+        $this->_credentials = new FtpCredentials($user, $password);
 
         return $this;
     }
