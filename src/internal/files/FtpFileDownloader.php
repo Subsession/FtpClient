@@ -25,28 +25,28 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Files;
+namespace Subsession\Ftp\Internal\Files;
 
-use Comertis\Ftp\Internal\Connection\FtpConnection;
+use Subsession\Ftp\Internal\Connection\FtpConnection;
 
 /**
  * Undocumented class
  *
- * @uses Comertis\Ftp\Internal\Connection\FtpConnection
+ * @uses Subsession\Ftp\Internal\Connection\FtpConnection
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpFileDownloader
 {
@@ -56,7 +56,7 @@ class FtpFileDownloader
      * @access private
      * @var    FtpConnection
      */
-    private $_connection;
+    private $connection;
 
     /**
      * Constructor
@@ -66,6 +66,6 @@ class FtpFileDownloader
      */
     public function __construct(FtpConnection &$connection)
     {
-        $this->_connection = $connection;
+        $this->connection = $connection;
     }
 }

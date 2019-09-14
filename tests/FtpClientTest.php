@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use Comertis\Ftp\FtpClient;
+use Subsession\Ftp\FtpClient;
 
 class FtpClientTest
 {

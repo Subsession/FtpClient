@@ -25,30 +25,30 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Files;
+namespace Subsession\Ftp\Internal\Files;
 
-use Comertis\Ftp\Internal\Files\FtpFileUploader;
-use Comertis\Ftp\Internal\Files\FtpFileDownloader;
+use Subsession\Ftp\Internal\Files\FtpFileDownloader;
+use Subsession\Ftp\Internal\Files\FtpFileUploader;
 
 /**
  * Undocumented class
  *
- * @uses Comertis\Ftp\Internal\Files\FtpFileUploader
- * @uses Comertis\Ftp\Internal\Files\FtpFileDownloader
+ * @uses Subsession\Ftp\Internal\Files\FtpFileUploader
+ * @uses Subsession\Ftp\Internal\Files\FtpFileDownloader
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpFileManager
 {
@@ -58,7 +58,7 @@ class FtpFileManager
      * @access private
      * @var    FtpFileDownloader
      */
-    private $_downloader;
+    private $downloader;
 
     /**
      * Responsible for uploading files
@@ -66,14 +66,14 @@ class FtpFileManager
      * @access private
      * @var    FtpFileUploader
      */
-    private $_uploader;
+    private $uploader;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->_downloader = new FtpFileDownloader();
-        $this->_uploader = new FtpFileUploader();
+        $this->downloader = new FtpFileDownloader();
+        $this->uploader = new FtpFileUploader();
     }
 }

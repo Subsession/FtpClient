@@ -25,32 +25,32 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Connection;
+namespace Subsession\Ftp\Internal\Connection;
 
-use Comertis\Ftp\Internal\Connection\FtpConnection;
-use Comertis\Ftp\Internal\Connection\FtpConnectionData;
-use Comertis\Ftp\Internal\Connection\FtpCredentials;
+use Subsession\Ftp\Internal\Connection\FtpConnection;
+use Subsession\Ftp\Internal\Connection\FtpConnectionData;
+use Subsession\Ftp\Internal\Connection\FtpCredentials;
 
 /**
  * Undocumented class
  *
- * @uses Comertis\Ftp\Internal\Connection\FtpConnection
- * @uses Comertis\Ftp\Internal\Connection\FtpCredentials
- * @uses Comertis\Ftp\Internal\Connection\FtpConnectionData
+ * @uses Subsession\Ftp\Internal\Connection\FtpConnection
+ * @uses Subsession\Ftp\Internal\Connection\FtpCredentials
+ * @uses Subsession\Ftp\Internal\Connection\FtpConnectionData
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpConnectionManager
 {
@@ -60,7 +60,7 @@ class FtpConnectionManager
      * @access private
      * @var    FtpConnectionData
      */
-    private $_connection;
+    private $connection;
 
     /**
      * Responsible for managing the FTP login credentials
@@ -68,15 +68,15 @@ class FtpConnectionManager
      * @access private
      * @var    FtpCredentials
      */
-    private $_credentials;
+    private $credentials;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->_connection = new FtpConnectionData();
-        $this->_credentials = new FtpCredentials();
+        $this->connection = new FtpConnectionData();
+        $this->credentials = new FtpCredentials();
     }
 
     /**
@@ -87,7 +87,7 @@ class FtpConnectionManager
      */
     public function getConnection()
     {
-        return $this->_connection;
+        return $this->connection;
     }
 
     /**
@@ -101,7 +101,7 @@ class FtpConnectionManager
      */
     public function setConnection(FtpConnection $ftpConnection)
     {
-        $this->_connection = $ftpConnection;
+        $this->connection = $ftpConnection;
 
         return $this;
     }
@@ -114,7 +114,7 @@ class FtpConnectionManager
      */
     public function getConnectionMode()
     {
-        return $this->_connection->getConnectionMode();
+        return $this->connection->getConnectionMode();
     }
 
     /**
@@ -128,7 +128,7 @@ class FtpConnectionManager
      */
     public function setConnectionMode($connectionMode)
     {
-        $this->_connection->setConnectionMode($connectionMode);
+        $this->connection->setConnectionMode($connectionMode);
 
         return $this;
     }
@@ -141,7 +141,7 @@ class FtpConnectionManager
      */
     public function getUrl()
     {
-        return $this->_connection->getUrl();
+        return $this->connection->getUrl();
     }
 
     /**
@@ -154,7 +154,7 @@ class FtpConnectionManager
      */
     public function setUrl($url)
     {
-        $this->_connection->setUrl($url);
+        $this->connection->setUrl($url);
 
         return $this;
     }
@@ -167,7 +167,7 @@ class FtpConnectionManager
      */
     public function getPort()
     {
-        return $this->_connection->getPort();
+        return $this->connection->getPort();
     }
 
     /**
@@ -180,7 +180,7 @@ class FtpConnectionManager
      */
     public function setPort($port)
     {
-        $this->_connection->setPort($port);
+        $this->connection->setPort($port);
 
         return $this;
     }
@@ -193,7 +193,7 @@ class FtpConnectionManager
      */
     public function getCredentials()
     {
-        return $this->_credentials;
+        return $this->credentials;
     }
 
     /**
@@ -207,7 +207,7 @@ class FtpConnectionManager
      */
     public function setCredentials($user, $password)
     {
-        $this->_credentials = new FtpCredentials($user, $password);
+        $this->credentials = new FtpCredentials($user, $password);
 
         return $this;
     }

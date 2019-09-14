@@ -25,31 +25,30 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Connection;
+namespace Subsession\Ftp\Internal\Connection;
 
-use Comertis\Ftp\Internal\Connection\FtpCredentials;
-use Comertis\Ftp\Internal\Connection\FtpConnectionData;
-
+use Subsession\Ftp\Internal\Connection\FtpConnectionData;
+use Subsession\Ftp\Internal\Connection\FtpCredentials;
 
 /**
  * Undocumented class
  *
- * @uses Comertis\Ftp\Internal\Connection\FtpCredentials
- * @uses Comertis\Ftp\Internal\Connection\FtpConnectionData
+ * @uses Subsession\Ftp\Internal\Connection\FtpCredentials
+ * @uses Subsession\Ftp\Internal\Connection\FtpConnectionData
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpConnection
 {
@@ -59,7 +58,7 @@ class FtpConnection
      * @access private
      * @var    FtpConnectionData
      */
-    private $_data;
+    private $data;
 
     /**
      * Container the necessary FTP credentials
@@ -67,14 +66,14 @@ class FtpConnection
      * @access private
      * @var    FtpCredentials
      */
-    private $_credentials;
+    private $credentials;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->_data = new FtpConnectionData();
-        $this->_credentials = new FtpCredentials();
+        $this->data = new FtpConnectionData();
+        $this->credentials = new FtpCredentials();
     }
 }

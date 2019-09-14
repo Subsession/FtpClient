@@ -25,31 +25,31 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Connection;
+namespace Subsession\Ftp\Internal\Connection;
 
-use Comertis\Ftp\FtpServerType;
-use Comertis\Ftp\FtpConnectionMode;
+use Subsession\Ftp\FtpConnectionMode;
+use Subsession\Ftp\FtpServerType;
 
 /**
  * Holds the FTP connection details, like the URL,
  * port and Connection Type
  *
- * @uses Comertis\Ftp\FtpConnectionMode
- * @uses Comertis\Ftp\FtpServerType
+ * @uses Subsession\Ftp\FtpConnectionMode
+ * @uses Subsession\Ftp\FtpServerType
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpConnectionData
 {
@@ -59,7 +59,7 @@ class FtpConnectionData
      * @access private
      * @var    string
      */
-    private $_url;
+    private $url;
 
     /**
      * The FTP connection port
@@ -67,7 +67,7 @@ class FtpConnectionData
      * @access private
      * @var    integer
      */
-    private $_port;
+    private $port;
 
     /**
      * The FTP connection server type
@@ -75,7 +75,7 @@ class FtpConnectionData
      * @access private
      * @var    string
      */
-    private $_serverType;
+    private $serverType;
 
     /**
      * The FTP connection mode
@@ -83,7 +83,7 @@ class FtpConnectionData
      * @access private
      * @var    string
      */
-    private $_connectionMode;
+    private $connectionMode;
 
     /**
      * Default port mappings for different
@@ -92,7 +92,7 @@ class FtpConnectionData
      * @access private
      * @var    array
      */
-    private $_defaultPortMappings;
+    private $defaultPortMappings;
 
     /**
      * Create a new instance of FtpConnection
@@ -104,12 +104,12 @@ class FtpConnectionData
      */
     public function __construct($url = null, $port = null, $serverType = null, $connectionMode = null)
     {
-        $this->_url = $url;
-        $this->_port = $port;
-        $this->_serverType = $serverType ?? FtpServerType::FTP;
-        $this->_connectionMode = $connectionMode ?? FtpConnectionMode::ACTIVE;
+        $this->url = $url;
+        $this->port = $port;
+        $this->serverType = $serverType ?? FtpServerType::FTP;
+        $this->connectionMode = $connectionMode ?? FtpConnectionMode::ACTIVE;
 
-        $this->_defaultPortMappings = [
+        $this->defaultPortMappings = [
             FtpServerType::FTP => 21,
             FtpServerType::SFTP => 22,
         ];
@@ -123,7 +123,7 @@ class FtpConnectionData
      */
     public function getUrl()
     {
-        return $this->_url;
+        return $this->url;
     }
 
     /**
@@ -136,7 +136,7 @@ class FtpConnectionData
      */
     public function setUrl($url)
     {
-        $this->_url = $url;
+        $this->url = $url;
 
         return $this;
     }
@@ -149,7 +149,7 @@ class FtpConnectionData
      */
     public function getPort()
     {
-        return $this->_port;
+        return $this->port;
     }
 
     /**
@@ -162,7 +162,7 @@ class FtpConnectionData
      */
     public function setPort($port)
     {
-        $this->_port = $port;
+        $this->port = $port;
 
         return $this;
     }
@@ -175,7 +175,7 @@ class FtpConnectionData
      */
     public function getServerType()
     {
-        return $this->_serverType;
+        return $this->serverType;
     }
 
     /**
@@ -188,7 +188,7 @@ class FtpConnectionData
      */
     public function setServerType($serverType)
     {
-        $this->_serverType = $serverType;
+        $this->serverType = $serverType;
 
         return $this;
     }
@@ -201,7 +201,7 @@ class FtpConnectionData
      */
     public function getConnectionMode()
     {
-        return $this->_connectionMode;
+        return $this->connectionMode;
     }
 
     /**
@@ -215,7 +215,7 @@ class FtpConnectionData
      */
     public function setConnectionMode($connectionMode)
     {
-        $this->_connectionMode = $connectionMode;
+        $this->connectionMode = $connectionMode;
 
         return $this;
     }
@@ -229,8 +229,8 @@ class FtpConnectionData
      * @access private
      * @return integer
      */
-    private function _getDefaultPort($serverType)
+    private function getDefaultPort($serverType)
     {
-        return $this->_defaultPortMappings[$serverType];
+        return $this->defaultPortMappings[$serverType];
     }
 }

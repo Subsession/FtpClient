@@ -25,24 +25,24 @@
  * DEALINGS IN THE SOFTWARE.
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  GIT: &Id&
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 
-namespace Comertis\Ftp\Internal\Connection;
+namespace Subsession\Ftp\Internal\Connection;
 
 /**
  * Holds the FTP authentication user and password
  *
  * @category Ftp
- * @package  Comertis\Ftp
- * @author   Cristian Moraru <cristian@comertis.com>
+ * @package  Subsession\Ftp
+ * @author   Cristian Moraru <cristian.moraru@live.com>
  * @license  https://opensource.org/licenses/MIT MIT
  * @version  Release: 1.0.0
- * @link     https://github.com/Comertis/FtpClient
+ * @link     https://github.com/Subsession/FtpClient
  */
 class FtpCredentials
 {
@@ -52,7 +52,7 @@ class FtpCredentials
      * @access private
      * @var    string
      */
-    private $_user;
+    private $user;
 
     /**
      * The password to be used by the FTP connection
@@ -60,7 +60,7 @@ class FtpCredentials
      * @access private
      * @var    string
      */
-    private $_password;
+    private $password;
 
     /**
      * Create a new instance of FtpCredentials
@@ -70,8 +70,8 @@ class FtpCredentials
      */
     public function __construct($user = null, $password = null)
     {
-        $this->_user = $user;
-        $this->_password = $password;
+        $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -82,7 +82,7 @@ class FtpCredentials
      */
     public function getUser()
     {
-        return $this->_user;
+        return $this->user;
     }
 
     /**
@@ -95,7 +95,7 @@ class FtpCredentials
      */
     public function setUser($user)
     {
-        $this->_user = $user;
+        $this->user = $user;
 
         return $this;
     }
@@ -108,7 +108,7 @@ class FtpCredentials
      */
     public function getPassword()
     {
-        return $this->_password;
+        return $this->password;
     }
 
     /**
@@ -121,7 +121,7 @@ class FtpCredentials
      */
     public function setPassword($password)
     {
-        $this->_password = $password;
+        $this->password = $password;
 
         return $this;
     }

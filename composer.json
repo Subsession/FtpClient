@@ -1,5 +1,5 @@
 {
-  "name": "comertis/ftp",
+  "name": "subsession/ftp",
   "description": "A object-oriented FTP wrapper library",
   "type": "library",
   "minimum-stability": "stable",
@@ -7,23 +7,23 @@
   "readme": "README.md",
   "prefer-stable": true,
   "support": {
-    "docs": "https://github.com/Comertis/FtpClient/tree/master/docs",
-    "issues": "https://github.com/Comertis/FtpClient/issues",
-    "source": "https://github.com/Comertis/FtpClient"
+    "docs": "https://github.com/Subsession/FtpClient/tree/master/docs",
+    "issues": "https://github.com/Subsession/FtpClient/issues",
+    "source": "https://github.com/Subsession/FtpClient"
   },
   "authors": [
     {
       "name": "Cristian Moraru",
-      "email": "cristian@comertis.com",
+      "email": "cristian.moraru@live.com",
       "role": "Developer"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Comertis\\Ftp\\": "src/",
-      "Comertis\\Ftp\\Internal\\": "src/internal",
-      "Comertis\\Ftp\\Internal\\Files\\": "src/internal/files",
-      "Comertis\\Ftp\\Internal\\Connection\\": "src/internal/connection"
+      "Subsession\\Ftp\\": "src/",
+      "Subsession\\Ftp\\Internal\\": "src/internal",
+      "Subsession\\Ftp\\Internal\\Files\\": "src/internal/files",
+      "Subsession\\Ftp\\Internal\\Connection\\": "src/internal/connection"
     },
     "exclude-from-classmap": [
       "/test/",
@@ -34,7 +34,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Comertis\\Ftp\\Tests\\": "tests/"
+      "Subsession\\Ftp\\Tests\\": "tests/"
     }
   },
   "require": {
